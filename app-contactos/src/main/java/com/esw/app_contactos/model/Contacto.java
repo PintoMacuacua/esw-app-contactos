@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -30,6 +31,15 @@ public class Contacto {
     @Column(length = 20)
     private String telefone;
 
+    @Email(message = "Formato de email inválido")
+    @Size(max = 150, message = "Email deve ter no máximo 150 caracteres")
+    @Column(length = 150)
+    private String email;
+
+    @Size(max = 500, message = "Observações devem ter no máximo 500 caracteres")
+    @Column(length = 500)
+    private String observacoes;
+
     @NotNull(message = "Utilizador é obrigatório")
     @ManyToOne
     @JoinColumn(name = "utilizador_id", nullable = false)
@@ -41,6 +51,14 @@ public class Contacto {
     public Contacto(String nome, String telefone, Utilizador utilizador) {
         this.nome = nome;
         this.telefone = telefone;
+        this.utilizador = utilizador;
+    }
+
+    public Contacto(String nome, String telefone, String email, String observacoes, Utilizador utilizador) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+        this.observacoes = observacoes;
         this.utilizador = utilizador;
     }
 
@@ -67,6 +85,22 @@ public class Contacto {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getObservacoes() {
+        return observacoes;
+    }
+
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
     }
 
     public Utilizador getUtilizador() {
@@ -97,6 +131,8 @@ public class Contacto {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", telefone='" + telefone + '\'' +
+                ", email='" + email + '\'' +
+                ", observacoes='" + observacoes + '\'' +
                 ", utilizador=" + (utilizador != null ? utilizador.getId() : null) +
                 '}';
     }
