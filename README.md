@@ -113,8 +113,8 @@ GET    /api/contactos/{id}/exists         - Verificar existência
 curl -X POST http://localhost:8080/api/utilizadores \
   -H "Content-Type: application/json" \
   -d '{
-    "nome": "João Silva",
-    "email": "joao.silva@email.com"
+    "nome": "René Armindo Lissai",
+    "email": "rene.armindo.lissai@email.com"
   }'
 ```
 
@@ -123,8 +123,8 @@ curl -X POST http://localhost:8080/api/utilizadores \
 curl -X POST http://localhost:8080/api/contactos \
   -H "Content-Type: application/json" \
   -d '{
-    "nome": "Maria Santos",
-    "telefone": "+351 912 345 678",
+    "nome": "Pinto Armando Macuacua",
+    "telefone": "+258845930110",
     "utilizadorId": 1
   }'
 ```
@@ -182,13 +182,13 @@ java -jar target/app-contactos-0.0.1-SNAPSHOT.war --spring.profiles.active=prod
 ### ✅ Problemas Resolvidos
 
 #### Swagger Error 500
-**Problema**: Erro 500 ao aceder `/v3/api-docs`  
-**Causa**: Incompatibilidade SpringDoc OpenAPI 2.5.0 com Spring Boot 3.5.0  
+**Problema**: Erro 500 ao aceder `/v3/api-docs`
+**Causa**: Incompatibilidade SpringDoc OpenAPI 2.5.0 com Spring Boot 3.5.0
 **Solução**: Atualizado para SpringDoc OpenAPI 2.8.8
 
 #### Erros de Compilação Lombok
-**Problema**: Métodos getters/setters não reconhecidos  
-**Causa**: Processamento incorreto das anotações Lombok pelo IDE  
+**Problema**: Métodos getters/setters não reconhecidos
+**Causa**: Processamento incorreto das anotações Lombok pelo IDE
 **Solução**: Implementação manual de getters/setters e padrões Builder
 
 ### 🔍 Script de Teste
