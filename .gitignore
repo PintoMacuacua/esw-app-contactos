@@ -1,0 +1,76 @@
+### Arquivos do projeto ###
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.ipr
+*.iws
+*.log
+*.swp
+*.bak
+*.orig
+*.DS_Store
+*.classpath
+*.project
+*.settings/
+*.springBeans
+*.factorypath
+*.cache
+bin/
+build/
+out/
+target/
+.gradle/
+.idea/
+.vscode/
+*.versionsBackup
+
+### Dependências ###
+**/dependency-reduced-pom.xml
+
+### Arquivos do Maven ###
+**/maven-*
+**/mvnw
+**/mvnw.cmd
+**/.mvn/
+
+### Arquivos do Gradle ###
+**/gradle/
+**/gradlew
+**/gradlew.bat
+**/gradle-app.setting
+**/build/
+
+### Arquivos de configuração local ###
+**/application*.properties
+**/application*.yml
+**/application*.yaml
+
+### Banco de dados H2 (se usado) ###
+**/*.h2.db
+**/*.mv.db
+
+### Arquivos do Docker ###
+**/docker-compose*.yml
+
+### Arquivos do Node (se houver frontend) ###
+**/node_modules/
+
+### Arquivos do IntelliJ ###
+**/*.iml
+**/out/
+
+### Arquivos do Eclipse ###
+**/.metadata/
+**/.recommenders/
+**/RemoteSystemsTempFiles/
+**/Servers/
+**/*.launch
+
+### Arquivos do NetBeans ###
+**/nbproject/private/
+**/nbproject/
+**/nbbuild/
+**/nbdist/
+**/.nb-gradle/
