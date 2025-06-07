@@ -50,6 +50,7 @@ target/
 ### Banco de dados H2 (se usado) ###
 **/*.h2.db
 **/*.mv.db
+**/data/
 
 ### Arquivos do Docker ###
 **/docker-compose*.yml
@@ -74,3 +75,9 @@ target/
 **/nbbuild/
 **/nbdist/
 **/.nb-gradle/
+
+### Arquivos de teste e logs ###
+**/app.log
+**/swagger-response.json
+**/test-swagger.sh
+**/.factorypath
