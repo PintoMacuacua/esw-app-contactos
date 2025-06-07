@@ -18,8 +18,8 @@ Aplicação simples para gestão de contactos pessoais e profissionais. Permite 
 Este projeto só aceita commits no formato Conventional Commits.
 
 ---
--feat(contact): adicionar campo de observações
--fix(ui): corrigir alinhamento do botão de guardar
--docs(readme): atualizar instruções de instalação
--refactor(db): simplificar função de listagem
+- feat(contact): adicionar campo de observações
+- fix(ui): corrigir alinhamento do botão de guardar
+- docs(readme): atualizar instruções de instalação
+- refactor(db): simplificar função de listagem
 ---
