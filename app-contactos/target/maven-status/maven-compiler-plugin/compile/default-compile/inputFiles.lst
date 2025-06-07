@@ -1,2 +1,13 @@
-/home/pacote/Documents/Faculdade/4 ano/1 semestre/Engenharia de Software Avancada/teste2/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/AppContactosApplication.java
-/home/pacote/Documents/Faculdade/4 ano/1 semestre/Engenharia de Software Avancada/teste2/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/ServletInitializer.java
+/home/lissai/Documentos/Faculdade/4 Ano/Engenharia de Software Avançada/PraticalProject/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/AppContactosApplication.java
+/home/lissai/Documentos/Faculdade/4 Ano/Engenharia de Software Avançada/PraticalProject/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/ServletInitializer.java
+/home/lissai/Documentos/Faculdade/4 Ano/Engenharia de Software Avançada/PraticalProject/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/config/OpenApiConfig.java
+/home/lissai/Documentos/Faculdade/4 Ano/Engenharia de Software Avançada/PraticalProject/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/controller/ContactoController.java
+/home/lissai/Documentos/Faculdade/4 Ano/Engenharia de Software Avançada/PraticalProject/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/controller/UtilizadorController.java
+/home/lissai/Documentos/Faculdade/4 Ano/Engenharia de Software Avançada/PraticalProject/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/dto/ContactoDTO.java
+/home/lissai/Documentos/Faculdade/4 Ano/Engenharia de Software Avançada/PraticalProject/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/dto/UtilizadorDTO.java
+/home/lissai/Documentos/Faculdade/4 Ano/Engenharia de Software Avançada/PraticalProject/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/model/Contacto.java
+/home/lissai/Documentos/Faculdade/4 Ano/Engenharia de Software Avançada/PraticalProject/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/model/Utilizador.java
+/home/lissai/Documentos/Faculdade/4 Ano/Engenharia de Software Avançada/PraticalProject/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/repository/ContactoRepository.java
+/home/lissai/Documentos/Faculdade/4 Ano/Engenharia de Software Avançada/PraticalProject/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/repository/UtilizadorRepository.java
+/home/lissai/Documentos/Faculdade/4 Ano/Engenharia de Software Avançada/PraticalProject/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/service/ContactoService.java
+/home/lissai/Documentos/Faculdade/4 Ano/Engenharia de Software Avançada/PraticalProject/esw-app-contactos/app-contactos/src/main/java/com/esw/app_contactos/service/UtilizadorService.java
