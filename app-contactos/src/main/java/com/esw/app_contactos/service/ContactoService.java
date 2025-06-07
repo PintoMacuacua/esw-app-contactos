@@ -13,14 +13,16 @@ import com.esw.app_contactos.model.Utilizador;
 import com.esw.app_contactos.repository.ContactoRepository;
 import com.esw.app_contactos.repository.UtilizadorRepository;
 
-import lombok.RequiredArgsConstructor;
-
 @Service
-@RequiredArgsConstructor
 public class ContactoService {
     
     private final ContactoRepository contactoRepository;
     private final UtilizadorRepository utilizadorRepository;
+
+    public ContactoService(ContactoRepository contactoRepository, UtilizadorRepository utilizadorRepository) {
+        this.contactoRepository = contactoRepository;
+        this.utilizadorRepository = utilizadorRepository;
+    }
 
     public ContactoDTO createContacto(ContactoDTO dto) {
         Utilizador utilizador = utilizadorRepository.findById(dto.utilizadorId())

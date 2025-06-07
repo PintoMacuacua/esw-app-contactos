@@ -11,13 +11,14 @@ import com.esw.app_contactos.exception.UtilizadorNotFoundException;
 import com.esw.app_contactos.model.Utilizador;
 import com.esw.app_contactos.repository.UtilizadorRepository;
 
-import lombok.RequiredArgsConstructor;
-
 @Service
-@RequiredArgsConstructor
 public class UtilizadorService {
     
     private final UtilizadorRepository utilizadorRepository;
+
+    public UtilizadorService(UtilizadorRepository utilizadorRepository) {
+        this.utilizadorRepository = utilizadorRepository;
+    }
 
     public UtilizadorDTO createUtilizador(UtilizadorDTO dto) {
         // Verificar se já existe um utilizador com o mesmo email

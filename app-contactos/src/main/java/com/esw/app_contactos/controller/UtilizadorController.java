@@ -23,15 +23,16 @@ import com.esw.app_contactos.service.UtilizadorService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
-
 @RestController
 @RequestMapping("/api/utilizadores")
 @Tag(name = "Utilizadores", description = "Gestão de utilizadores")
-@RequiredArgsConstructor
 public class UtilizadorController {
     
     private final UtilizadorService utilizadorService;
+
+    public UtilizadorController(UtilizadorService utilizadorService) {
+        this.utilizadorService = utilizadorService;
+    }
 
     @Operation(summary = "Criar utilizador", description = "Regista um novo utilizador")
     @ApiResponse(responseCode = "201", description = "Utilizador criado com sucesso")

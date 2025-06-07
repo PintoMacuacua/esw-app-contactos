@@ -22,15 +22,16 @@ import com.esw.app_contactos.service.ContactoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
-
 @RestController
 @RequestMapping("/api/contactos")
 @Tag(name = "Contactos", description = "Gestão de contactos associados a utilizadores")
-@RequiredArgsConstructor
 public class ContactoController {
     
     private final ContactoService contactoService;
+
+    public ContactoController(ContactoService contactoService) {
+        this.contactoService = contactoService;
+    }
 
     @Operation(summary = "Criar contacto", description = "Associa um contacto a um utilizador existente")
     @ApiResponse(responseCode = "201", description = "Contacto criado com sucesso")
