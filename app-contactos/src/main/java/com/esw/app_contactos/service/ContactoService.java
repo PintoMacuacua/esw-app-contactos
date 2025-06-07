@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.esw.app_contactos.dto.ContactoDTO;
+import com.esw.app_contactos.exception.ContactoNotFoundException;
+import com.esw.app_contactos.exception.UtilizadorNotFoundException;
 import com.esw.app_contactos.model.Contacto;
 import com.esw.app_contactos.model.Utilizador;
 import com.esw.app_contactos.repository.ContactoRepository;
@@ -22,7 +24,7 @@ public class ContactoService {
 
     public ContactoDTO createContacto(ContactoDTO dto) {
         Utilizador utilizador = utilizadorRepository.findById(dto.utilizadorId())
-            .orElseThrow(() -> new RuntimeException("Utilizador não encontrado com ID: " + dto.utilizadorId()));
+            .orElseThrow(() -> new UtilizadorNotFoundException(dto.utilizadorId()));
 
         Contacto contacto = new Contacto();
         contacto.setNome(dto.nome());
@@ -68,11 +70,11 @@ public class ContactoService {
 
     public ContactoDTO updateContacto(Long id, ContactoDTO dto) {
         Contacto contacto = contactoRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Contacto não encontrado com ID: " + id));
+            .orElseThrow(() -> new ContactoNotFoundException(id));
 
         if (dto.utilizadorId() != null && !dto.utilizadorId().equals(contacto.getUtilizador().getId())) {
             Utilizador novoUtilizador = utilizadorRepository.findById(dto.utilizadorId())
-                .orElseThrow(() -> new RuntimeException("Utilizador não encontrado com ID: " + dto.utilizadorId()));
+                .orElseThrow(() -> new UtilizadorNotFoundException(dto.utilizadorId()));
             contacto.setUtilizador(novoUtilizador);
         }
 
@@ -95,7 +97,7 @@ public class ContactoService {
 
     public void deleteContacto(Long id) {
         if (!contactoRepository.existsById(id)) {
-            throw new RuntimeException("Contacto não encontrado com ID: " + id);
+            throw new ContactoNotFoundException(id);
         }
         contactoRepository.deleteById(id);
     }

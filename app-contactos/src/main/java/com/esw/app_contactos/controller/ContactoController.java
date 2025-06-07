@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
+
 import com.esw.app_contactos.dto.ContactoDTO;
 import com.esw.app_contactos.service.ContactoService;
 
@@ -35,7 +37,7 @@ public class ContactoController {
     @ApiResponse(responseCode = "400", description = "Dados inválidos")
     @ApiResponse(responseCode = "404", description = "Utilizador não encontrado")
     @PostMapping
-    public ResponseEntity<ContactoDTO> createContacto(@RequestBody ContactoDTO dto) {
+    public ResponseEntity<ContactoDTO> createContacto(@Valid @RequestBody ContactoDTO dto) {
         ContactoDTO saved = contactoService.createContacto(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
@@ -71,7 +73,7 @@ public class ContactoController {
     @ApiResponse(responseCode = "404", description = "Contacto não encontrado")
     @ApiResponse(responseCode = "400", description = "Dados inválidos")
     @PutMapping("/{id}")
-    public ResponseEntity<ContactoDTO> updateContacto(@PathVariable Long id, @RequestBody ContactoDTO dto) {
+    public ResponseEntity<ContactoDTO> updateContacto(@PathVariable Long id, @Valid @RequestBody ContactoDTO dto) {
         ContactoDTO updated = contactoService.updateContacto(id, dto);
         return ResponseEntity.ok(updated);
     }

@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
+
 import com.esw.app_contactos.dto.UtilizadorDTO;
 import com.esw.app_contactos.service.UtilizadorService;
 
@@ -35,7 +37,7 @@ public class UtilizadorController {
     @ApiResponse(responseCode = "201", description = "Utilizador criado com sucesso")
     @ApiResponse(responseCode = "400", description = "Dados inválidos ou email já existente")
     @PostMapping
-    public ResponseEntity<UtilizadorDTO> createUtilizador(@RequestBody UtilizadorDTO dto) {
+    public ResponseEntity<UtilizadorDTO> createUtilizador(@Valid @RequestBody UtilizadorDTO dto) {
         UtilizadorDTO saved = utilizadorService.createUtilizador(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
@@ -73,7 +75,7 @@ public class UtilizadorController {
     @ApiResponse(responseCode = "404", description = "Utilizador não encontrado")
     @ApiResponse(responseCode = "400", description = "Dados inválidos ou email já existente")
     @PutMapping("/{id}")
-    public ResponseEntity<UtilizadorDTO> updateUtilizador(@PathVariable Long id, @RequestBody UtilizadorDTO dto) {
+    public ResponseEntity<UtilizadorDTO> updateUtilizador(@PathVariable Long id, @Valid @RequestBody UtilizadorDTO dto) {
         UtilizadorDTO updated = utilizadorService.updateUtilizador(id, dto);
         return ResponseEntity.ok(updated);
     }

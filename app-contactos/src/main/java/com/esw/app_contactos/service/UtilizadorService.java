@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.esw.app_contactos.dto.UtilizadorDTO;
+import com.esw.app_contactos.exception.DuplicateEmailException;
+import com.esw.app_contactos.exception.UtilizadorNotFoundException;
 import com.esw.app_contactos.model.Utilizador;
 import com.esw.app_contactos.repository.UtilizadorRepository;
 
@@ -20,7 +22,7 @@ public class UtilizadorService {
     public UtilizadorDTO createUtilizador(UtilizadorDTO dto) {
         // Verificar se já existe um utilizador com o mesmo email
         if (utilizadorRepository.findByEmail(dto.email()) != null) {
-            throw new RuntimeException("Já existe um utilizador com o email: " + dto.email());
+            throw new DuplicateEmailException(dto.email(), true);
         }
         
         Utilizador utilizador = new Utilizador();
@@ -65,13 +67,13 @@ public class UtilizadorService {
 
     public UtilizadorDTO updateUtilizador(Long id, UtilizadorDTO dto) {
         Utilizador utilizador = utilizadorRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Utilizador não encontrado com ID: " + id));
+            .orElseThrow(() -> new UtilizadorNotFoundException(id));
 
         // Verificar se o novo email já está em uso por outro utilizador
         if (dto.email() != null && !dto.email().equals(utilizador.getEmail())) {
             Utilizador existingUtilizador = utilizadorRepository.findByEmail(dto.email());
             if (existingUtilizador != null && !existingUtilizador.getId().equals(id)) {
-                throw new RuntimeException("Já existe um utilizador com o email: " + dto.email());
+                throw new DuplicateEmailException(dto.email(), true);
             }
         }
 
@@ -93,7 +95,7 @@ public class UtilizadorService {
 
     public void deleteUtilizador(Long id) {
         if (!utilizadorRepository.existsById(id)) {
-            throw new RuntimeException("Utilizador não encontrado com ID: " + id);
+            throw new UtilizadorNotFoundException(id);
         }
         utilizadorRepository.deleteById(id);
     }
